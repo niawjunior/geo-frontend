@@ -13,18 +13,20 @@ function Login() {
   };
   return (
     <>
-      <div className=" flex items-center justify-center h-[100vh] bg-gray-800 w-full">
+      <div className="flex flex-col items-center justify-center h-[100vh] bg-gray-800 w-full">
+        <div className="text-center font-bold text-3xl mb-5 text-white">
+          LOGIN
+        </div>
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className="flex-col w-1/3 bg-gray-600 p-10 min-h-[50vh]"
+          className="mx-auto flex-col w-1/3 bg-gray-600 p-10 min-w-[300px]"
         >
-          {/* register your input into the hook by invoking the "register" function */}
           <label className="block text-sm font-bold mb-2" htmlFor="username">
             Username
           </label>
           <input
             id="username"
-            className={classNames("w-full h-10 p-2 text-xl font-bold", {
+            className={classNames("w-full h-10 p-2 text-lg font-bold", {
               "border-2 border-rose-500 outline-rose-500": errors.username,
             })}
             {...register("username", { required: true })}
@@ -39,7 +41,6 @@ function Login() {
             )}
           </div>
 
-          {/* include validation with required or other standard HTML validation rules */}
           <label
             className="block text-sm font-bold mb-2 mt-10"
             htmlFor="password"
@@ -48,7 +49,7 @@ function Login() {
           </label>
           <input
             id="password"
-            className={classNames("w-full h-10 p-2 text-xl font-bold", {
+            className={classNames("w-full h-10 p-2 text-lg font-bold", {
               "border-2 border-rose-500 outline-rose-500": errors.password,
             })}
             {...register("password", { required: true })}
