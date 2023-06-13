@@ -1,15 +1,23 @@
+// import { useQuery } from "@tanstack/react-query";
+
+import { useSignIn } from "../services/auth";
+
 import classNames from "classnames";
 
 import { useForm } from "react-hook-form";
 function Login() {
+  const signIn = useSignIn();
   const {
     register,
     handleSubmit,
-    // watch,
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
-    console.log(data);
+    const { username, password } = data;
+    signIn({
+      username,
+      password,
+    });
   };
   return (
     <>
